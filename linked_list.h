@@ -27,7 +27,7 @@ void printList(ReservationNode* head);
 void insertAtEnd(ReservationNode** head, const Reservation& value);
 void insertAtBeginning(ReservationNode** head, const Reservation& value);
 bool deleteNode(ReservationNode** head, const int reservationId);
-ReservationNode* findNode(ReservationNode* head, int reservationId);
+ReservationNode* findReservationNode(ReservationNode* head, int reservationId);
 void printReservations(ReservationNode* head);
 
 #endif
