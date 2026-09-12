@@ -52,7 +52,7 @@ Responsibilities:
 - Undo most recent cancellation
 - Test queue and stack functionality
 
-## Shared Responsibilities
+## Shared Responsibilitie
 
 All team members will contribute to:
 - src/main.cpp
