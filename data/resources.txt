@@ -1,0 +1,2 @@
+# Resource data file
+# Format to be decided by team
