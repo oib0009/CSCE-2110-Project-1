@@ -1,70 +1,40 @@
-# CSCE 2110 Project 1
-## Campus Resource Reservation System
+# Campus Resource Reservation System – CSCE 2110 Project 1
 
-### Milestone 1
+## Team Members
+- Olu Babalola – NathanielBabalola@my.unt.edu
+- Name 2 – Email
+- Name 3 – Email
 
-This repository contains the team project for the Campus Resource Reservation System.
+---
 
-## Proposed Team Responsibilities
+## Project Description
+This project implements a Campus Resource Reservation System using C++ and data structures.  
 
-### Ashish - Reservation Management & Linked List
-Files:
-- include/Reservation.h
-- include/ReservationManager.h
-- src/Reservation.cpp
-- src/ReservationManager.cpp
+The system manages:
+- Active reservations (Linked List)
+- Waiting lists (Queue)
+- Cancellation history (Stack)
+- Resource and reservation data loaded from text files
 
-Responsibilities:
-- Reservation data
-- Create reservations
+This is Milestone 1 of the project, focusing on data structure implementation and basic functionality.
+
+---
+
+## Features Implemented (Milestone 1)
+### 🔸 Reservation System Core
+- Load resources from `resources.txt`
+- Load existing reservations from `reservations.txt`
+- Create new reservations
 - Cancel reservations
-- Active reservation linked list
 - Display active reservations
-- Reservation validation
-- Test reservation functionality
 
-### Olu - Resource Management
-Files:
-- include/Resource.h
-- src/Resource.cpp
-- data/resources.txt
+### 🔸 Data Structures
+- **Linked List** – Active reservations  
+- **Queue** – Waiting list  
+- **Stack** – Cancellation history  
+- **Vector** – Resource storage  
 
-Responsibilities:
-- Resource data
-- Load resources from file
-- Store resources
-- Display resources
-- Resource availability
-- Test resource functionality
+### 🔸 File I/O
+- Read resources and reservations from `/data` folder
 
-### Uriel - Waiting List & Cancellation History
-Files:
-- include/WaitingList.h
-- include/CancellationHistory.h
-- src/WaitingList.cpp
-- src/CancellationHistory.cpp
-
-Responsibilities:
-- Waiting list queue
-- Add/remove students from waiting list
-- Display waiting list
-- Cancellation history stack
-- Undo most recent cancellation
-- Test queue and stack functionality
-
-## Shared Responsibilities
-
-All team members will contribute to:
-- src/main.cpp
-- Program integration
-- Testing and debugging
-- Complexity analysis
-- Contribution report
-- Final documentation
-
-## Project Structure
-
-include/ - Header files
-src/ - C++ implementation files
-data/ - Resource input data
-docs/ - Project documentation
+---
