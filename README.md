@@ -2,7 +2,7 @@
 
 ## Team Members
 - Olu Babalola – NathanielBabalola@my.unt.edu
-- Name 2 – Email
+- Ashish Thapa - Ashishthapa1@my.unt.edu
 - Name 3 – Email
 
 ---
