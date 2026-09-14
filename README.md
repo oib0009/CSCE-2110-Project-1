@@ -1,40 +1,56 @@
-# Campus Resource Reservation System – CSCE 2110 Project 1
+## Team Responsibilities
 
-## Team Members
-- Olu Babalola – NathanielBabalola@my.unt.edu
-- Ashish Thapa – Ashishthapa1@my.unt.edu
-- Name 3 – Email
+### Ashish - Reservation Management + Linked List
 
----
+**Files:**
+- `include/Reservation.h`
+- `include/ReservationManager.h`
+- `src/Reservation.cpp`
+- `src/ReservationManager.cpp`
 
-## Project Description
-This project implements a Campus Resource Reservation System using C++ and data structures.  
-
-The system manages:
-- Active reservations (Linked List)
-- Waiting lists (Queue)
-- Cancellation history (Stack)
-- Resource and reservation data loaded from text files
-
-This is Milestone 1 of the project, focusing on data structure implementation and basic functionality.
-
----
-
-## Features Implemented (Milestone 1)
-### 🔸 Reservation System Core
-- Load resources from `resources.txt`
-- Load existing reservations from `reservations.txt`
-- Create new reservations
-- Cancel reservations
+**Responsibilities:**
+- Reservation class
+- Active reservation linked list
+- Add reservations
+- Remove/cancel reservations
 - Display active reservations
+- Reservation validation
 
-### 🔸 Data Structures
-- **Linked List** – Active reservations  
-- **Queue** – Waiting list  
-- **Stack** – Cancellation history  
-- **Vector** – Resource storage  
+### Olu - Resource Management + File Input
 
-### 🔸 File I/O
-- Read resources and reservations from `/data` folder
+**Files:**
+- `include/Resource.h`
+- `src/Resource.cpp`
+- `data/resources.txt`
 
----
+**Responsibilities:**
+- Resource class
+- Load resources from file
+- Store resources
+- Display resources
+- Show resource availability
+
+### Uriel - Waiting List + Cancellation History
+
+**Files:**
+- `include/WaitingList.h`
+- `include/CancellationHistory.h`
+- `src/WaitingList.cpp`
+- `src/CancellationHistory.cpp`
+
+**Responsibilities:**
+- Waiting list queue
+- Add/remove students from waiting list
+- Cancellation history stack
+- Undo most recent cancellation
+- Display cancellation history
+
+## Shared Responsibilities
+
+All team members will contribute to:
+- `src/main.cpp`
+- Program integration
+- Testing and debugging
+- Complexity analysis
+- Contribution report
+- Documentation
