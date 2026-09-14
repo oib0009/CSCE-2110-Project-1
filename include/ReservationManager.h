@@ -1,24 +1,21 @@
-// Reservation manager and linked list
 #ifndef RESERVATION_MANAGER_H
 #define RESERVATION_MANAGER_H
-
 #include "Reservation.h"
 #include "linked_list.h"
 
-class ReservationManager{
-
+class ReservationManager {
 private:
-  ReservationNode* head;
-
+    ReservationNode* head;
 public:
-  ReservationManager(); //const
-  ~ReservationManager(); //destructor
-  bool addReservation(const Reservation& reservation); //create or add reservation
-  bool cancelReservation(int reservationId); //cancel or remove reservation
-  Reservation* findReservation(int reservationId); //find reservation by ID
-  void displayActiveReservation() const; //display all active reservation
-  bool validateReservation(const Reservation& reservation) const; //validate before adding it
-  bool reservationExists(int reservationId)const; //check if reservation exists
-  int getActiveReservationCount() const; //Number of active reservation
+    ReservationManager(); // Constructor
+    ~ReservationManager(); // Destructor
+    bool addReservation(const Reservation& reservation); // Create/add reservation
+    bool cancelReservation(int reservationId); // Cancel/remove reservation
+    Reservation* findReservation(int reservationId); // Find reservation by ID
+    void displayActiveReservations() const;  // Display active reservations
+    bool validateReservation(const Reservation& reservation) const; // Validate reservation before adding
+    bool reservationIdExists(int reservationId) const; // Check if reservation ID already exists
+    int getActiveReservationCount() const;// Number of active reservations
+
 };
 #endif
