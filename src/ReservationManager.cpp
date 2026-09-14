@@ -6,60 +6,58 @@ using namespace std;
 //default const
 ReservationManager::ReservationManager() {
     head = nullptr;
-} 
-// Destructor
+}
+//destructor
 ReservationManager::~ReservationManager() {
     ReservationNode* current = head;
     while (current != nullptr) {
         ReservationNode* temp = current;
         current = current->next;
-
         delete temp;
     }
     head = nullptr;
 }
-
-// Check if reservation ID already exists
+//to check if reservtion Id exists
 bool ReservationManager::reservationIdExists(
     int reservationId) const {
     ReservationNode* found =
         findReservationNode(head, reservationId);
     return found != nullptr;
 }
-// Validate reservation
+//validate reservation
 bool ReservationManager::validateReservation(
     const Reservation& reservation) const {
     if (!reservation.hasValidData()) {
         cout << "Invalid reservation data." << endl;
         return false;
     }
-
-    // Prevent duplicate reservation IDs
-    if (reservationIdExists(reservation.reservationId)) {
+    if (reservationIdExists(reservation.reservationId)) { //prevents duplicate id
         cout << "Reservation ID already exists." << endl;
         return false;
     }
     return true;
 }
-// Add a new reservation
+//add new reservation
 bool ReservationManager::addReservation(
     const Reservation& reservation) {
-    if (!validateReservation(reservation)) {
+    if (!validateReservation(reservation)) { //validate before adding
         return false;
-    } // Validate before adding
+    }
     insertAtEnd(&head, reservation);
     cout << "Reservation created successfully." << endl;
     return true;
 }
-// Cancel a reservation
+//cancel reservation
 bool ReservationManager::cancelReservation(
     int reservationId) {
-    ReservationNode* found =
-        findReservationNode(head, reservationId); // Find reservation first
+    ReservationNode* found =                           //find reservation firsr
+        findReservationNode(head, reservationId);
     if (found == nullptr) {
         cout << "Reservation not found." << endl;
+
         return false;
     }
+    
     bool removed =
         deleteNode(&head, reservationId);
     if (removed) {
@@ -68,7 +66,7 @@ bool ReservationManager::cancelReservation(
     }
     return false;
 }
-// Find reservation by ID
+//to find reservation by id
 Reservation* ReservationManager::findReservation(
     int reservationId) {
     ReservationNode* found =
@@ -78,23 +76,21 @@ Reservation* ReservationManager::findReservation(
     }
     return &(found->data);
 }
-
-// Display all active reservations
+//display all active reservations
 void ReservationManager::displayActiveReservations() const {
     if (head == nullptr) {
         cout << "No active reservations." << endl;
         return;
-    } 
-printReservations(head);
+    }
+    printReservations(head);
 }
-
-// Count active reservations
+//couunt active reservations
 int ReservationManager::getActiveReservationCount() const {
     int count = 0;
     ReservationNode* current = head;
     while (current != nullptr) {
         count++;
-        current = current->next; 
+        current = current->next;
     }
     return count;
 }
