@@ -1,25 +1,17 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-#include <string>
 #include <iostream>
-using namespace std;
+#include "Reservation.h"
 
-// Reservation structure (matches project requirements)
-struct Reservation {
-    int reservationId;      // Unique reservation ID
-    int studentId;          // Student ID
-    string studentName;     // Student name
-    int resourceId;         // Resource being reserved
-    string reservationDate; // Date of reservation
-};
+using namespace std;
 
 // Linked list node
 struct ReservationNode {
     Reservation data;
     ReservationNode* next;
-
-    ReservationNode(const Reservation& r) : data(r), next(nullptr) {}
+    ReservationNode(const Reservation& r)
+        : data(r), next(nullptr) {}
 };
 
 // Function prototypes
