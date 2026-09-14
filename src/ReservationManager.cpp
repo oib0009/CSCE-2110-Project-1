@@ -84,9 +84,8 @@ void ReservationManager::displayActiveReservations() const {
     if (head == nullptr) {
         cout << "No active reservations." << endl;
         return;
-    }
-  
-    printReservations(head);
+    } 
+printReservations(head);
 }
 
 // Count active reservations
