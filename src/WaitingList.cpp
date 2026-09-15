@@ -3,10 +3,11 @@
 #include <iostream>
 using namespace std;
 
-void WaitingList::addStudent(const Reservation&reservation) {
+//Adds student to waiting list
+void WaitingList::addStudent(const Reservation& reservation) {
     waitingList.push(reservation); //Adds student from reservation to the waiting list
 }
-
+//Removes student from the waiting list
 bool WaitingList::removeStudent(Reservation& removedStudent) {
     if (waitingList.empty()) { //If statement checks if the waiting list is empty, if it is then returns false. Otherwise moves on
         cout << "The waiting list is empty." << endl;
@@ -16,7 +17,7 @@ bool WaitingList::removeStudent(Reservation& removedStudent) {
     waitingList.pop(); //This then removes the first student from the waiting list, the line above keeps tab of the removed student
     return true; //Then returns true to show that the removal was successful
 }
-
+//Displays the waiting list
 void WaitingList::displayWaitingList() const {
     if (waitingList.empty()) { //First check just to make sure that waiting list is  empty. Otherwise continues to display the waiting list
         cout << "The waiting list is empty, nothing to display." << endl;
