@@ -1,6 +1,6 @@
 ## Team Responsibilities
 
-### Ashish - Reservation Management + Linked List
+### Ashish - Reservation Management
 
 **Files:**
 - `include/Reservation.h`
@@ -16,9 +16,11 @@
 - Display active reservations
 - Reservation validation
 
-### Olu - Resource Management + File Input
+### Olu - Resource Management + Linked List
 
 **Files:**
+- `linked_list.h`
+- `Linked_list.cpp`
 - `include/Resource.h`
 - `src/Resource.cpp`
 - `data/resources.txt`
