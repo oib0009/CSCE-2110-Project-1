@@ -19,6 +19,7 @@ public:
     static bool loadResources(const std::string& path = "data/resources.txt");
     static void displayResources();
     static bool findById(int id);
+    static bool isResourceAvailable(int id);
 
 private:
     int resourceId;

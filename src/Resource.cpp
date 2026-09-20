@@ -82,3 +82,12 @@ bool Resource::findById(int id) {
     return false;
 }
 
+bool Resource::isResourceAvailable(int id) {
+    for (const auto& r : resources) {
+        if (r.resourceId == id) {
+            return r.available;
+        }
+    }
+    return false;
+}
+
