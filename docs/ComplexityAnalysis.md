@@ -43,7 +43,9 @@ Once restored, the reservation is passed into the ReservationManager::addReserva
 Thus,
 
 •	Pop from cancellation-history stack: O(1)
+
 •	Insert reservation into active reservations: O(n)
+
 •	Undo-cancellation operation: O(n)
 
 Complexity Summary
