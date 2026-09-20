@@ -28,7 +28,9 @@ The waiting list is implemented using a queue. Students are processed using Firs
 To get to the next student in the list, a call is made to WaitingList::removeStudent(), which removes the next student in the queue. The front of the waiting list is stored in the queue and thus there is no need to search through all of the students in the list.
 
 •	Pop from cancellation-history stack: O(1) 
+
 •	Add reservation back to active reservations: O(n) 
+
 •	Overall undo-cancellation operation: O(n)
 
 4.	Undo cancellation
