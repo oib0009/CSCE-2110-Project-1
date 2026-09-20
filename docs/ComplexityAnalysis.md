@@ -1,5 +1,7 @@
 Complexity Analysis
+
 Campus Resource Reservation System
+
 The following describes the time complexity of the core data structure operations implemented in the Campus Resource Reservation System. The active reservations are stored in a linked list, the waiting list in a queue and the cancellation history in a stack.
 Let n be the number of active reservations in the linked list.
 1.	Reservation Insertion
