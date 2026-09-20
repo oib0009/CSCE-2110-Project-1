@@ -7,16 +7,11 @@
 #include "../include/Resource.h"
 #include "../include/WaitingList.h"
 #include "../include/CancellationHistory.h"
-
 using namespace std;
-
 int main() {
-
     ReservationManager reservationManager;
     WaitingList waitingList;
     CancellationHistory cancellationHistory;
-
-    // Load resources from file
     if (!Resource::loadResources("data/resources.txt")) {
         cout << "Warning: Could not load resources." << endl;
     }
@@ -43,7 +38,7 @@ int main() {
 
         cin >> choice;
 
-        // Handle invalid input
+        // to handle invalid input
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -52,14 +47,12 @@ int main() {
         }
 
         switch (choice) {
-
-            // Display resources
+            //display resources
             case 1: {
                 Resource::displayResources();
                 break;
             }
-
-            // Add reservation
+            //add reservation
             case 2: {
                 int reservationId;
                 int studentId;
@@ -84,7 +77,7 @@ int main() {
                 cout << "Enter reservation date: ";
                 cin >> reservationDate;
 
-                // Make sure resource exists
+                //make sure resource exists
                 if (!Resource::findById(resourceId)) {
                     cout << "Resource not found." << endl;
                     break;
@@ -97,46 +90,37 @@ int main() {
                     resourceId,
                     reservationDate
                 );
-
                 reservationManager.addReservation(newReservation);
-
                 break;
             }
-
             // Cancel reservation
             case 3: {
                 int reservationId;
 
                 cout << "Enter reservation ID to cancel: ";
                 cin >> reservationId;
-
                 Reservation* reservation =
                     reservationManager.findReservation(reservationId);
-
                 if (reservation == nullptr) {
                     cout << "Reservation not found." << endl;
                     break;
                 }
-
-                // Save reservation before deleting it
+                //save reservation before deleting it
                 Reservation cancelledReservation = *reservation;
-
                 if (reservationManager.cancelReservation(reservationId)) {
                     cancellationHistory.addCancellation(
                         cancelledReservation
                     );
                 }
-
                 break;
             }
 
-            // Find reservation
+            //find reservation
             case 4: {
                 int reservationId;
 
                 cout << "Enter reservation ID: ";
                 cin >> reservationId;
-
                 Reservation* reservation =
                     reservationManager.findReservation(reservationId);
 
@@ -155,22 +139,18 @@ int main() {
                     cout << "Reservation Date: "
                          << reservation->reservationDate << endl;
                 }
-
                 break;
             }
-
-            // Display active reservations
+            //display active reservations
             case 5: {
                 reservationManager.displayActiveReservations();
 
                 cout << "Total active reservations: "
                      << reservationManager.getActiveReservationCount()
                      << endl;
-
                 break;
             }
-
-            // Add student to waiting list
+            //add student to waiting list
             case 6: {
                 int reservationId;
 
@@ -186,11 +166,9 @@ int main() {
                     waitingList.addStudent(*reservation);
                     cout << "Student added to waiting list." << endl;
                 }
-
                 break;
             }
-
-            // Process waiting list
+            //process waiting list
             case 7: {
                 Reservation nextStudent;
 
@@ -207,19 +185,17 @@ int main() {
                 break;
             }
 
-            // Display waiting list
+            //display waiting list
             case 8: {
                 waitingList.displayWaitingList();
                 break;
             }
-
-            // Display cancellation history
+            //display cancellation history
             case 9: {
                 cancellationHistory.displayCancellationHistory();
                 break;
             }
-
-            // Undo cancellation
+            //undo cancellation
             case 10: {
                 Reservation restoredReservation;
 
@@ -236,21 +212,17 @@ int main() {
                              << endl;
                     }
                 }
-
                 break;
             }
-
             case 0: {
                 cout << "Exiting program." << endl;
                 break;
             }
-
             default: {
                 cout << "Invalid choice. Try again." << endl;
                 break;
             }
         }
     }
-
     return 0;
 }
