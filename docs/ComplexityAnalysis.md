@@ -3,7 +3,9 @@ Complexity Analysis
 Campus Resource Reservation System
 
 The following describes the time complexity of the core data structure operations implemented in the Campus Resource Reservation System. The active reservations are stored in a linked list, the waiting list in a queue and the cancellation history in a stack.
+
 Let n be the number of active reservations in the linked list.
+
 1.	Reservation Insertion
 Time Complexity: O(n)
 A new reservation is created and validation is performed in the ReservationManager::addReservation() function. Before insertion the active reservation list is checked. A search of the list may be necessary to ensure that no reservation uses the same reservation ID. If the reservation is to be inserted at the end of the list, traversal may be needed to reach the end of the list.
