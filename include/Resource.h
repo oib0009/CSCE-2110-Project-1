@@ -17,6 +17,7 @@ public:
     void setAvailable(bool available);
 
     static bool loadResources(const std::string& path = "data/resources.txt");
+    static const std::vector<Resource>& getResources();
     static void displayResources();
     static bool findById(int id);
     static bool isResourceAvailable(int id);

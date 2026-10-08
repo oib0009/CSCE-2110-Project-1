@@ -24,6 +24,7 @@ void displayMenu() {
     cout << "8. Display Waiting List\n";
     cout << "9. Display Cancellation History\n";
     cout << "10. Undo Last Cancellation\n";
+    cout << "11. Resource Utilization Report\n";
     cout << "0. Exit\n";
     cout << "=============================================\n";
     cout << "Enter choice: ";
@@ -63,12 +64,17 @@ int main() {
         cout << "Warning: Resource file could not be loaded." << endl;
     }
 
-    int choice;
+    int choice = -1;
 
     do {
         displayMenu();
 
         if (!(cin >> choice)) {
+            if (cin.eof()) {
+                cout << "\nInput closed. Exiting program." << endl;
+                break;
+            }
+
             cout << "Invalid input. Please enter a number." << endl;
             clearInput();
             continue;
@@ -366,6 +372,15 @@ int main() {
                     cout << "Cancellation history is empty." << endl;
                 }
 
+                break;
+            }
+
+            // -----------------------------------------
+            // Resource Utilization Report
+            // -----------------------------------------
+            case 11: {
+                cout << "\n--- Resource Utilization ---\n";
+                reservationManager.displayResourceUtilization();
                 break;
             }
 

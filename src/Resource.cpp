@@ -61,6 +61,10 @@ bool Resource::loadResources(const string& path) {
     return true;
 }
 
+const vector<Resource>& Resource::getResources() {
+    return resources;
+}
+
 void Resource::displayResources() {
     cout << "Resource List\n";
     cout << "ID\tName\t\tType\t\tStatus\n";

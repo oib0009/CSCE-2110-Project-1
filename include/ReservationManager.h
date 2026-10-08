@@ -23,6 +23,7 @@ public:
 
     //final project
     void displayMostRequestedResources() const;
+    void displayResourceUtilization() const;
 };
 
 #endif
