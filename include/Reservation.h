@@ -1,22 +1,28 @@
-#ifndef RESERVATION_H
-#define RESERVATION_H
 
-#include <string>
-using namespace std;
+#ifndef RESERVATION_MANAGER_H
+#define RESERVATION_MANAGER_H
 
-struct Reservation {
-    int reservationId;
-    int studentId;
-    string studentName;
-    int resourceId;
-    string reservationDate;
+#include "Reservation.h"
+#include "linked_list.h"
 
-Reservation(); // Default constructor
-Reservation(int reservationId,
-                int studentId,
-                const string& studentName,
-                int resourceId,
-                const string& reservationDate); // Constructor with reservation information
-bool hasValidData() const; // Check if reservation data is valid
+class ReservationManager {
+private:
+    ReservationNode* head;
+
+public:
+    ReservationManager();
+    ~ReservationManager();
+
+    bool addReservation(const Reservation& reservation);
+    bool cancelReservation(int reservationId);
+    Reservation* findReservation(int reservationId);
+    void displayActiveReservations() const;
+    bool validateReservation(const Reservation& reservation) const;
+    bool reservationIdExists(int reservationId) const;
+    int getActiveReservationCount() const;
+
+    // Final Project
+    void displayMostRequestedResources() const;
 };
+
 #endif
