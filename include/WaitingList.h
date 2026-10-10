@@ -12,6 +12,11 @@ public:
     void addStudent (const Reservation& reservation); //Adds student to the waiting list
     bool removeStudent (Reservation& removedStudent); //Removes student from the waiting list, bool states if removal worked or not
     void displayWaitingList() const; //Displays the waiting list
+
+    //Adding functions for final part of the project
+    void displayWaitlingListStatistics() const; //This displays the statistics of the waiting list
+    int getWaitingListSize() const; //Gets number of students in the waiting list for displaying or statistics purposes
+    
 };
 
 #endif
