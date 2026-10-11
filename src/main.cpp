@@ -26,6 +26,7 @@ void displayMenu() {
     cout << "10. Undo Last Cancellation\n";
     cout << "11. Display Waiting List Statistics\n";
     cout << "12. Resource Utilization Report\n";
+    cout << "13. Most Requested Resources Report\n";
     cout << "0. Exit\n";
     cout << "=============================================\n";
     cout << "Enter choice: ";
@@ -392,6 +393,15 @@ int main() {
             case 12: {
                 cout << "\n--- Resource Utilization ---\n";
                 reservationManager.displayResourceUtilization();
+                break;
+            }
+
+            // -----------------------------------------
+            // Most Requested Resources Report
+            // -----------------------------------------
+            case 13: {
+                cout << "\n--- Most Requested Resources ---\n";
+                reservationManager.displayMostRequestedResources();
                 break;
             }
 
