@@ -24,6 +24,7 @@ void displayMenu() {
     cout << "8. Display Waiting List\n";
     cout << "9. Display Cancellation History\n";
     cout << "10. Undo Last Cancellation\n";
+    cout << "11. Display Waiting List Statistics\n";
     cout << "0. Exit\n";
     cout << "=============================================\n";
     cout << "Enter choice: ";
@@ -365,6 +366,16 @@ int main() {
                 else {
                     cout << "Cancellation history is empty." << endl;
                 }
+
+                break;
+            }
+            // -----------------------------------------
+            // Display Waiting List Statistics
+            // -----------------------------------------
+            case 11: {
+                cout << "\n--- Waiting List Statistics ---\n";
+                
+                waitingList.displayWaitingListStatistics();
 
                 break;
             }
