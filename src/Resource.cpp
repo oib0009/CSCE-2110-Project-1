@@ -1,5 +1,6 @@
 
 #include "../include/Resource.h"
+#include "../include/WaitingList.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -91,3 +92,20 @@ bool Resource::isResourceAvailable(int id) {
     return false;
 }
 
+//Added function to display waiting list statistics for each resource
+void Resource::displayWaitingListStatistics(const WaitingList& waitingList) {
+    if (resources.empty()) { //If statement for if there are no resources available
+        cout << "No resources available." << endl;
+        return;
+    }
+
+    for (int i = 0; i < resources.size(); i++) { //This loop iterates through all resources to display their waiting list statistics
+        int resourceId = resources[i].getResourceId(); //Gets the resource ID for the current resource
+        int count = waitingList.getWaitingListSize(resourceId); //Gets the number of students waiting for the current resource
+
+        cout << "Resource ID: " <<resourceId << endl;
+        cout << "Resource Name: " << resources[i].getResourceName() << endl;
+        cout << "Waiting Students: " << count << endl;
+        cout << endl;
+    }
+}
