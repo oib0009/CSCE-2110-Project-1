@@ -24,7 +24,6 @@ void displayMenu() {
     cout << "8. Display Waiting List\n";
     cout << "9. Display Cancellation History\n";
     cout << "10. Undo Last Cancellation\n";
-    cout << "11. Resource Utilization Report\n";
     cout << "0. Exit\n";
     cout << "=============================================\n";
     cout << "Enter choice: ";
@@ -372,15 +371,6 @@ int main() {
                     cout << "Cancellation history is empty." << endl;
                 }
 
-                break;
-            }
-
-            // -----------------------------------------
-            // Resource Utilization Report
-            // -----------------------------------------
-            case 11: {
-                cout << "\n--- Resource Utilization ---\n";
-                reservationManager.displayResourceUtilization();
                 break;
             }
 
