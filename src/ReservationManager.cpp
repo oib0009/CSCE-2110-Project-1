@@ -182,3 +182,86 @@ void ReservationManager::displayResourceUtilization() const {
              << row.reservationCount << '\n';
     }
 }
+
+/*
+ * Most Requested Resources Report
+ * Contributor:Ashish Thapa
+ *
+ * Ranks resources by active reservation count
+ * using the existing Merge Sort algorithm.
+ */
+void ReservationManager::displayMostRequestedResources() const {
+    const vector<Resource>& resources = Resource::getResources();
+
+    cout << "\n============================================\n";
+    cout << "       MOST REQUESTED RESOURCES REPORT\n";
+    cout << "============================================\n";
+
+    if (resources.empty()) {
+        cout << "No resources available.\n";
+        return;
+    }
+
+    unordered_map<int, int> reservationCounts;
+
+    for (ReservationNode* current = head;
+         current != nullptr;
+         current = current->next) {
+        ++reservationCounts[current->data.resourceId];
+    }
+
+    vector<ResourceUsage> ranking;
+
+    for (const Resource& resource : resources) {
+        int resourceId = resource.getResourceId();
+
+        ranking.push_back({
+            resourceId,
+            resource.getResourceName(),
+            reservationCounts[resourceId]
+        });
+    }
+
+    //reusing Olu's Merge Sort
+    vector<ResourceUsage> buffer(ranking.size());
+    mergeSort(ranking, buffer, 0, ranking.size());
+
+    cout << left
+         << setw(8) << "Rank"
+         << setw(14) << "Resource ID"
+         << setw(28) << "Resource Name"
+         << "Reservations\n";
+
+    cout << string(65, '-') << '\n';
+
+    int rank = 1;
+    int totalReservations = 0;
+
+    for (const ResourceUsage& resource : ranking) {
+        cout << left
+             << setw(8) << rank++
+             << setw(14) << resource.resourceId
+             << setw(28) << resource.resourceName
+             << resource.reservationCount << '\n';
+
+        totalReservations += resource.reservationCount;
+    }
+
+    cout << string(65, '-') << '\n';
+
+    cout << "Total Active Reservations: "
+         << totalReservations << '\n';
+
+    if (totalReservations > 0) {
+        cout << "Most Requested Resource: "
+             << ranking[0].resourceName
+             << " ("
+             << ranking[0].reservationCount
+             << " reservations)\n";
+    } else {
+        cout << "No active reservations yet.\n";
+    }
+
+    cout << "============================================\n";
+}
+
