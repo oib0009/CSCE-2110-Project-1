@@ -1,5 +1,6 @@
 // Waiting list implementation
 #include "WaitingList.h"
+#include "Resource.h"
 #include <iostream>
 using namespace std;
 
@@ -37,4 +38,36 @@ void WaitingList::displayWaitingList() const {
         cout << endl;
         tempWaitingList.pop(); //Removes the first student from the temporary waiting list, then the while loop loops to begin again while list ins't empty
     }
+}
+
+//This function counts the number of students waiting for one resource
+int WaitingList::getWaitingListSize(int resourceId) const {
+    queue<Reservation> tempWaitingList = waitingList; //Temp copy of the waiting list so that the original isn't changed while counting
+    int count = 0;
+
+    while (!tempWaitingList.empty()) {
+        Reservation currentReservation = tempWaitingList.front(); //Assigns the first student in the waiting list to currentReservation
+        if (currentReservation.resourceId == resourceId) {
+            count++;
+        }
+        tempWaitingList.pop();
+    }
+    return count;
+}
+
+//This function displays the waiting list statistics
+void WaitingList::displayWaitingListStatistics() const {
+    cout << "Waiting List Statistics: " << endl;
+
+    Resource::displayWaitingListStatistics(*this);
+
+    int totalStudents = 0;
+    queue<Reservation> tempWaitingList = waitingList;
+
+    while (!tempWaitingList.empty()) {
+        totalStudents++;
+        tempWaitingList.pop();
+    }
+    
+    cout << "Total number of students in the waiting list: " << totalStudents << endl;
 }

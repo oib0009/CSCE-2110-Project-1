@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+class WaitingList; // Forward declaration of the WaitingList class
 class Resource {
 public:
     Resource();
@@ -21,6 +22,9 @@ public:
     static void displayResources();
     static bool findById(int id);
     static bool isResourceAvailable(int id);
+
+    //Necessary for displaying waiting list statistics related to this resource
+    static void displayWaitingListStatistics(const WaitingList& waitingList);
 
 private:
     int resourceId;
