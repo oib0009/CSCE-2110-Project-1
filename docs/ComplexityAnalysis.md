@@ -1,60 +1,43 @@
-Complexity Analysis
+# Complexity Analysis
 
 Campus Resource Reservation System
 
-The following describes the time complexity of the core data structure operations implemented in the Campus Resource Reservation System. The active reservations are stored in a linked list, the waiting list in a queue and the cancellation history in a stack.
+The active reservations are stored in a singly linked list, waiting-list entries in a FIFO queue, and cancelled reservations in a stack. Let `n` be the number of active reservations, `r` the number of loaded resources, and `w` the number of waiting-list entries.
 
-Let n be the number of active reservations in the linked list.
+## Core Operations
 
-1.	Reservation Insertion
+| Operation | Time | Explanation |
+| --- | --- | --- |
+| Find reservation by ID (linear search) | O(n) | The linked list is traversed node by node until the matching ID is found or the list ends. |
+| Insert reservation | O(n) | Duplicate-ID validation searches the list, and insertion at the end traverses the list. |
+| Remove reservation | O(n) | The list may need to be searched to find the reservation and its predecessor. |
+| Add or process next waiting entry | O(1) | Queue insertion and removal operate at the back and front, respectively. |
+| Display waiting list | O(w) | Each queue entry is copied and visited once. |
+| Undo cancellation | O(n) | Popping the cancellation stack is O(1); validating and reinserting the reservation is O(n). |
+| Find resource by ID | O(r) | Resource records are checked sequentially. |
 
-Time Complexity: O(n)
+## Sorting and Reports
 
-A new reservation is created and validation is performed in the ReservationManager::addReservation() function. Before insertion the active reservation list is checked. A search of the list may be necessary to ensure that no reservation uses the same reservation ID. If the reservation is to be inserted at the end of the list, traversal may be needed to reach the end of the list.
-The number of nodes that may need to be checked increases with the number of active reservations. Thus, the worst-case time complexity is O(n).
+Merge Sort is implemented by the project and is used to order report rows by descending active-reservation count, with resource ID as the tie-breaker. Sorting `r` resources takes O(r log r) time and O(r) extra space.
 
-2.	Reservation Removal
+| Operation | Time | Explanation |
+| --- | --- | --- |
+| Resource Utilization report | Average O(n + r log r) | Active reservations are counted by resource, then all `r` resource rows are sorted and displayed. Hash-map counting is average O(n); Merge Sort is O(r log r). |
+| Most Requested Resources report | Average O(n + r log r) | It counts active reservations per resource and sorts all resources using the same Merge Sort. "Requested" currently means an active reservation. |
+| Waiting-List Statistics report | O(rw) | For each resource, the queue is copied and scanned to count matching entries. The total waiting-entry count adds one additional O(w) traversal. |
 
-Time Complexity: O(n)
+The report-counting costs use average-case hash-map behavior. The waiting-list statistics implementation deliberately scans the live queue, so its counts reflect current entries without changing queue contents.
 
-When a reservation is cancelled, a search is performed on the list of active reservations for the given reservation ID. The reservation may be found in any position within the list including at the end of the list.
-Once the reservation is found it is then removed from the list of active reservations. Since a search of the entire list may be needed to find the reservation the worst-case time complexity is O(n).
+## Summary
 
-3.	Waiting- List Processing
+| Requirement operation | Data structure or algorithm | Time complexity |
+| --- | --- | --- |
+| Reservation insertion | Linked list and linear validation | O(n) |
+| Reservation removal | Linked list | O(n) |
+| Reservation search | Linear search over linked list | O(n) |
+| Waiting-list processing | Queue | O(1) |
+| Undo cancellation | Stack and linked list | O(n) |
+| Report sorting | Team-implemented Merge Sort | O(r log r) |
 
-Time Complexity: O(1)
-
-The waiting list is implemented using a queue. Students are processed using First-In, First-Out (FIFO) ordering.
-To get to the next student in the list, a call is made to WaitingList::removeStudent(), which removes the next student in the queue. The front of the waiting list is stored in the queue and thus there is no need to search through all of the students in the list.
-
-•	Pop from cancellation-history stack: O(1) 
-
-•	Add reservation back to active reservations: O(n) 
-
-•	Overall undo-cancellation operation: O(n)
-
-4.	Undo cancellation
-
-Time Complexity: O(n)
-
-Cancellation history is stored in a stack. The most recently cancelled reservation can be retrieved from the cancellation history with CancellationHistory::restoreLastCancellation(). This operation is O(1) since the most recently cancelled reservation is always at the top of the stack.
-Once restored, the reservation is passed into the ReservationManager::addReservation() function and inserted into the list of active reservations. Insertion into the list of active reservations may require traversal or a search of the list.
-
-Thus,
-
-•	Pop from cancellation-history stack: O(1)
-
-•	Insert reservation into active reservations: O(n)
-
-•	Undo-cancellation operation: O(n)
-
-Complexity Summary
-| Operation | Data Structure | Time Complexity |
-| :--- | :--- | :--- |
-| Reservation Insertion | Linked List | O(n) |
-| Reservation Removal | Linked List | O(n) |
-| Waiting-List Processing | Queue | O(1) |
-| Undo Cancellation | Stack + Linked List | O(n) |
-
-The chosen data structures are appropriate for the Campus Resource Reservation System. The linked list can allow dynamic insertion and deletion of active reservations while the queue maintains proper FIFO processing of the waiting list students. The stack provides easy access to the most recently cancelled reservation.
+The linked list supports dynamic reservation insertion and deletion, the queue preserves FIFO processing, and the stack provides direct access to the most recent cancellation.
 

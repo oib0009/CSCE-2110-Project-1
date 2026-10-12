@@ -1,98 +1,49 @@
-# Project 1 - Team Responsibilities
+# Campus Resource Reservation System
 
-## Ashish - Reservations, Searching & Most Requested Resources
+A C++ command-line program for managing campus resources, active reservations, waiting lists, and cancellation history. The system includes reports generated from the resources and reservations held by the running program.
 
-**Files:**
+## Build and Run
 
-* `include/Reservation.h`
-* `include/ReservationManager.h`
-* `src/Reservation.cpp`
-* `src/ReservationManager.cpp`
+Run these commands from the repository root with a C++11 compiler:
 
-**Responsibilities:**
+```bash
+g++ -std=c++11 -Wall -Wextra -pedantic -I include src/*.cpp -o reservation_system
+./reservation_system
+```
 
-* Reservation creation, cancellation, validation, and display
-* Maintain active reservations
-* Linear Search for reservations
-* Most Requested Resources report using actual reservation data
-* Ensure search/reporting is integrated into the system
+The program loads resource records from `data/resources.txt`, so run it from the repository root. With MSYS2 on Windows, use the UCRT64 terminal and the same commands.
 
----
+## Menu Features
 
-## Olu - Resources, Linked List, Sorting & Resource Utilization
+| Option | Feature |
+| --- | --- |
+| 1 | Display resources and availability |
+| 2 | Create a reservation |
+| 3 | Cancel a reservation |
+| 4 | Search for a reservation by ID |
+| 5 | Display active reservations |
+| 6 | Add an existing reservation to the waiting list |
+| 7 | Process the next waiting-list entry (FIFO) |
+| 8 | Display the waiting list |
+| 9 | Display cancellation history |
+| 10 | Restore the most recently cancelled reservation |
+| 11 | Display waiting-list counts for each resource |
+| 12 | Display active reservation counts for each resource |
+| 13 | Rank resources by active reservation count |
 
-**Files:**
+The Most Requested Resources report currently defines "requested" as an active reservation. Reservation, waiting-list, and cancellation-history data are held in memory for the current run; only the resource catalog is loaded from a file.
 
-* `linked_list.h`
-* `Linked_list.cpp`
-* `include/Resource.h`
-* `src/Resource.cpp`
-* `data/resources.txt`
+## Project Structure
 
-**Responsibilities:**
+- `data/` contains the resource catalog and reservation data files.
+- `docs/` contains the user guide, complexity analysis, testing results, contribution report, and repository URL.
+- `include/` contains declarations for reservations, resources, the linked list, waiting list, and cancellation history.
+- `src/` contains the implementations and menu-driven application.
 
-* Resource class and resource data
-* Load, store, display, and manage resources
-* Linked list implementation
-* Implement and integrate **Merge Sort or Quick Sort**
-* Resource Utilization report showing every resource and its reservation count
-* Reports must use actual system data, not hard-coded results
+## Team Responsibilities
 
----
+- **Ashish Thapa:** reservation management, reservation search, and Most Requested Resources.
+- **Olu Babalola:** resource management, linked-list integration, Merge Sort, and Resource Utilization.
+- **Uriel Trejo:** waiting list, cancellation history, and Waiting-List Statistics.
 
-## Uriel - Waiting List & Cancellation History
-
-**Files:**
-
-* `include/WaitingList.h`
-* `include/CancellationHistory.h`
-* `src/WaitingList.cpp`
-* `src/CancellationHistory.cpp`
-
-**Responsibilities:**
-
-* Waiting list queue
-* Add/remove students from waiting list
-* Cancellation history stack
-* Undo/display cancellation history
-* Waiting-List Statistics report showing students waiting for each resource
-* Statistics must use actual waiting-list data
-
----
-
-## Shared Responsibilities
-
-**Files:**
-
-* `src/main.cpp`
-* Documentation
-
-All members contribute to:
-
-* System integration
-* Testing and debugging
-* Error handling
-* Complexity analysis
-* Documentation
-* Contribution report
-* Final demo preparation
-
-### Final Requirements
-
-| Requirement              | Owner    |
-| ------------------------ | -------- |
-| Linear Search            | Ashish   |
-| Merge Sort / Quick Sort  | Olu      |
-| Active Reservations      | Ashish   |
-| Resource Utilization     | Olu      |
-| Most Requested Resources | Ashish   |
-| Waiting-List Statistics  | Uriel    |
-| Integration & Testing    | Everyone |
-| Documentation & Demo     | Everyone |
-
-### Important
-
-* Searching and sorting algorithms must be implemented by the team.
-* `std::sort()` cannot be used to satisfy the sorting requirement.
-* Reports must be generated from actual system data.
-* Hard-coded report results are not allowed.
+All team members contributed to integration, testing, and documentation. See the contribution report for details.

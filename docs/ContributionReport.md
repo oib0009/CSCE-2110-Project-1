@@ -3,37 +3,27 @@
 ## Campus Resource Reservation System
 
 ### Team Members
-* Ashish Thapa
-* Olu Babalola
-* Uriel Trejo
 
-### Contribution
+- Ashish Thapa
+- Olu Babalola
+- Uriel Trejo
 
-| Team Member | Component(s) | Specific Tasks Completed | Testing/Debugging | GitHub Contributions |
-| --- | --- | --- | --- | --- |
-| **Ashish Thapa** | • Reservation Management<br>• Reservation data structure<br>• Integration of Reservation Management with the active reservation linked list<br>• Main program integration | **Files/Features:**<br>`include/Reservation.h`<br>`include/ReservationManager.h`<br>`src/Reservation.cpp`<br>`src/ReservationManager.cpp`<br>`main.cpp`<br><br>**Functions & Features:**<br>• Created `Reservation` structure/class storing reservation ID, student ID, student name, resource ID, and reservation date<br>• Validated reservation data<br>• Added new reservations & cancelled existing reservations<br>• Found reservations by ID, displayed active reservations, and counted active reservations<br>• Integrated `ReservationManager` with the team's linked-list implementation<br>• Connected reservation operations with resource validation, waiting list, and cancellation history in main program<br>• Helped integrate menu-driven CLI | • Tested reservation creation, searching, cancellation, and active-reservation display<br>• Performed integration testing to ensure reservation system worked with shared linked list and project components<br>• Identified and debugged compilation and include-path issues during team integration | • Worked on a separate feature branch for reservation management<br>• Submitted reservation-related code for integration<br>• Contributed to initial project structure and team responsibility documentation |
-| **Olu Babalola** | • Resource Management<br>• Resource file input<br>• Active Reservation Linked List | **Functions & Features:**<br>• Loaded resource information from resource data file<br>• Stored and displayed available resources<br>• Found resources by resource ID<br>• Implemented linked list used to store active reservations<br>• Created linked-list node operations<br>• Inserted, deleted, searched, traversed, and displayed reservations in linked list<br>• Integrated linked-list implementation with Reservation Management component for a single shared list | • Contributed to testing resource loading and linked-list operations<br>• Helped with integration of shared project components | • Worked on assigned components using branches and commits to document individual contributions<br>• Completed work integrated into main project after readiness for team testing |
-| **Uriel Trejo** | • Waiting List Queue<br>• Cancellation History Stack | **Functions & Features:**<br>• *Waiting List Queue:* Added students/reservations, maintained FIFO queue order, processed/removed next student, displayed waiting list<br>• *Cancellation History Stack:* Recorded cancelled reservations, maintained history using a stack, displayed history, restored most recently cancelled reservation<br>• Integrated waiting-list and cancellation-history components with Reservation Management through main program | • Contributed to testing waiting-list queue and cancellation-history stack<br>• Helped ensure components worked correctly with the rest of the project | • Worked on assigned components using branches and commits to document individual contributions<br>• Completed work integrated into main project after readiness for team testing |
+### Contribution Summary
 
----
+| Team Member | Component(s) | Specific Tasks Completed | Testing/Debugging | Documentation Contributions | GitHub Contributions |
+| --- | --- | --- | --- | --- | --- |
+| **Ashish Thapa** | Most Requested Resources report | Implemented a report that counts active reservations for each resource, ranks the resources, and identifies the most requested resource. Integrated the report as menu option 13. | The report checks are listed in `TestingResults.md`; Ashish should confirm which tests he personally performed. | Updated the project README and complexity analysis in earlier project work. | Added the report in commits `9009db8` and `e61a9a5` on `feature/ashish-final-report`. |
+| **Olu Babalola** | Merge Sort and Resource Utilization report | Implemented Merge Sort for report rows and the Resource Utilization report using active reservation data. Integrated the report as menu option 12. | Compiled and tested with msys ucrt64 | Updated the README project structure and contributed to project documentation. | Developed on `olu-sorting`; relevant commits include `e5855c8`, `6ecefed`, and `64aa56d`. |
+| **Uriel Trejo** | Waiting-List Statistics report | Implemented counts of students currently waiting for each resource using the live waiting-list queue. Integrated the report as menu option 11. | Tested the integration of the Waiting-list stat report | Add any documentation contribution Uriel confirms he completed. | Added the statistics implementation on `utrejo18-Final-Changes`; commits include `cdb12d0`, `410ac2b`, and `504a8d6`. Changes were merged through pull request #5. |
 
-### Shared Team Contributions
+### Individual Contributions
 
-All team members participated in integrating their individual components into the Campus Resource Reservation System.
+**Ashish Thapa:** Ashish added the Most Requested Resources report. It counts active reservations for each resource, ranks the results, and is available from menu option 13. It uses the team's Merge Sort implementation.
 
-**Shared work included:**
-* Integrating header and source files
-* Connecting the different data structures
-* Testing the complete program
-* Debugging compilation and integration problems
-* Reviewing the menu-driven `main.cpp`
-* Updating project documentation
-* Verifying that the system met Milestone 1 requirements
+**Olu Babalola:** Olu implemented Merge Sort for report rows and the Resource Utilization report, which counts active reservations for every resource. The report is available from menu option 12.
 
-*The final integrated system includes Resource Management, Reservation Management, an active-reservation linked list, a waiting-list queue, a cancellation-history stack, and a menu-driven command-line interface.*
+**Uriel Trejo:** Uriel implemented the Waiting-List Statistics report. It counts students currently waiting for each resource from the live queue and is available from menu option 11.
 
----
+### Shared Work
 
-### GitHub Workflow
-
-The team used GitHub for version control and collaboration. Team members worked on assigned components and used branches and commits to document their individual contributions. Completed work was integrated into the main project after the components were ready for team testing.
+The reports were integrated into the menu-driven application. The combined program was built and tested on Windows and on the UNT CSE CELL machine. Each team member should confirm their individual testing and documentation details to ensure this report accurately reflects their own work.
