@@ -42,8 +42,8 @@ The Most Requested Resources report currently defines "requested" as an active r
 
 ## Team Responsibilities
 
-- **Ashish Thapa:** reservation management, reservation search, and Most Requested Resources.
-- **Olu Babalola:** resource management, linked-list integration, Merge Sort, and Resource Utilization.
-- **Uriel Trejo:** waiting list, cancellation history, and Waiting-List Statistics.
+- **Ashish Thapa:** Most Requested Resources report (menu option 13).
+- **Olu Babalola:** Merge Sort and Resource Utilization report (menu option 12).
+- **Uriel Trejo:** Waiting-List Statistics report (menu option 11).
 
 All team members contributed to integration, testing, and documentation. See the contribution report for details.
