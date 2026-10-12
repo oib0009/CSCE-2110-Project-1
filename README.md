@@ -2,6 +2,8 @@
 
 A C++ command-line program for managing campus resources, active reservations, waiting lists, and cancellation history. The system includes reports generated from the resources and reservations held by the running program.
 
+REPO LINK: https://github.com/oib0009/CSCE-2110-Project-1
+
 ## Build and Run
 
 Run these commands from the repository root with a C++11 compiler:
